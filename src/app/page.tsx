@@ -1,39 +1,47 @@
 "use client"
 
-import { useQuery } from "@tanstack/react-query";
-import { getApodDay } from "./api/api";
+import { useState } from "react";
+import Apod from "./components/apod";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function Home() {
 
-  const query = useQuery({
-    queryKey: ['apod'],
-    queryFn: getApodDay
-  });
+  const [option, setOption] = useState('');
+  const [date, setDate] = useState<Date | null>(new Date());
 
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-  };
+  const handleOption = (event: React.MouseEvent<HTMLDivElement>) => {
+    const text = event.currentTarget.innerText;
+    if (text.includes('Dia')) {
+      setOption('Dia');
+    }
+  }
 
   return (
     <main className="main-class">
+      <h2>Selecione uma opção:</h2>
 
-      <h1>Foto do dia Astronomia</h1>
-
-      {query.isLoading && "Carregando..."}
-
-      {query.data &&
-        <div className="picture-day">
-          <h2>{query.data.title}</h2>
-          <p>{formatDate(query.data.date)}</p>
-          <img src={query.data.url} alt={query.data.title} />
-          <p>{query.data.explanation}</p>
-          <p>{query.data.copyright}</p>
+      <div className="options">
+        <div className="opt" onClick={handleOption}>
+          Foto do Dia
         </div>
+        <div className="opt" onClick={handleOption}>
+          Selecione uma Data
+
+          {date &&(
+            <div className="date">
+              <DatePicker selected={date} onChange={(date) => setDate(date)} />
+            </div>
+          )}
+
+        </div>
+      </div>
+
+      {option &&
+        <Apod />
       }
 
     </main>
-
-
   );
 }

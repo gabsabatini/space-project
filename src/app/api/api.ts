@@ -6,7 +6,7 @@ const req = axios.create({
 });
 
 export const getApodDay = async ():Promise<Apod> => {
-    const resp = await req.get('/apod?api_key=DEMO_KEY');
+    const resp = await req.get('/apod?api_key=l0LF7al9rbqo8YowcCnu0IBVH3RxlsUS74csAJxP');
     return resp.data;
 }
 
