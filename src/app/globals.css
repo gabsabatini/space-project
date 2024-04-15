@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at bottom, #121922 0%, #0c0d13 100%);
+    color: #fff;
+    font-family: "Montserrat", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+    border-bottom: 1px solid;
+    padding-bottom: 20px;
+    margin-top: 0;
+}
+
+header img {
+    max-width: 130px;
+    transform: rotate(80deg);
+}
+
+header p.header-title {
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 10px 0;
+    color: #fff;
+    text-shadow: 0 0 10px #FFFFFF;
+}
+
+.select-options {
+    width: 800px;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.select-options h2 {
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+}
+
+.select-options .options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.select-options .options .opt {
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    background-image: linear-gradient(45deg, #121922 0%, #3A506B 51%, #121922 100%);
+    cursor: pointer;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.select-options .options .opt p {
+    letter-spacing: 0.05em;
+    margin: 0;
+    font-weight: 500;
+}
+.select-options .options .opt:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+.select-options .options .opt:active {
+    transform: scale(0.95);
+}
+.select-options .options .opt .date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+.select-options .options .opt .date .react-datepicker-popper {
+    bottom: 0;
+}
+.select-options .options .opt .date input[type="text"] {
+    outline: none;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.05em;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif !important;
+    width: 100%;
+    padding: 5px 0;
+}
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+    font-family: "Montserrat", sans-serif !important;
+}
+.select-options .options .opt .date .react-datepicker-wrapper {
+    width: 100%;
+}
+.select-options .options .opt .date button.btn-continuar {
+    background: #fff;
+    border: none;
+    width: 100%;
+    font-family: "Montserrat", sans-serif !important;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50px;
+    font-weight: 500;
+    color: #121922;
+}

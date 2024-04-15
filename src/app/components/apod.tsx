@@ -1,26 +1,31 @@
 import { useQuery } from "@tanstack/react-query";
-import { getApodDay } from "../api/api";
+import { getApodDate, getApodDay } from "../api/api";
+import { ApodProps } from "../types/Apod";
 
-const Apod = () => {
+const Apod = ({ queryType, date }: ApodProps) => {
 
     const query = useQuery({
         queryKey: ['apod'],
-        queryFn: getApodDay
+        queryFn: () => {
+            if (queryType === 'day') {
+                return getApodDay();
+            } else if (queryType === 'date') {
+                const splitDate = date.split('/');
+                const formatDate = splitDate[2] + '-' + splitDate[1] + '-' + splitDate[0];
+                return getApodDate(formatDate);
+            } else {
+                throw new Error('Invalid query type');
+            }
+        }
     });
-
-    const formatDate = (dateString: string): string => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('pt-BR');
-    };
 
     return (
         <div className="apod">
-            <h1>Foto do dia Astronomia</h1>
-            {query.isLoading && "Carregando..."}
+            {query.isFetching && "Carregando..."}
             {query.data &&
                 <div className="picture-day">
+                    <h1>Foto do dia Astronomia</h1><span><i>{date}</i></span>
                     <h2>{query.data.title}</h2>
-                    <p>{formatDate(query.data.date)}</p>
                     <img src={query.data.url} alt={query.data.title} />
                     <p>{query.data.explanation}</p>
                     <p>{query.data.copyright}</p>

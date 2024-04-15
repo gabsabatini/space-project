@@ -13,34 +13,53 @@ export default function Home() {
 
   const handleOption = (event: React.MouseEvent<HTMLDivElement>) => {
     const text = event.currentTarget.innerText;
-    if (text.includes('Dia')) {
-      setOption('Dia');
+    text.toLocaleUpperCase();
+    if (text.includes('DIA')) {
+      setOption('day');
+    } else {
+      setOption('Selecione');
     }
+  }
+
+  const handleButton = () => {
+    setOption('date');
+  }
+
+  const handleVoltar = () => {
+    setOption('');
   }
 
   return (
     <main className="main-class">
-      <h2>Selecione uma opção:</h2>
 
-      <div className="options">
-        <div className="opt" onClick={handleOption}>
-          Foto do Dia
-        </div>
-        <div className="opt" onClick={handleOption}>
-          Selecione uma Data
-
-          {date &&(
-            <div className="date">
-              <DatePicker selected={date} onChange={(date) => setDate(date)} />
+      {!(option === 'day' || option === 'date') && (
+        <div className="select-options">
+          <h2>Selecione uma opção:</h2>
+          <div className="options">
+            <div className="opt">
+              <p onClick={handleOption}>Foto do Dia</p>
             </div>
-          )}
+            <div className="opt">
+              <p onClick={handleOption}>Selecione uma Data</p>
 
+              {option === "Selecione" && (
+                <div className="date">
+                  <DatePicker selected={date} onChange={(date) => setDate(date)} dateFormat="dd/MM/yyyy" locale="ptBR"/>
+                  <button className="btn-continuar" onClick={handleButton}>Continuar</button>
+                </div>
+              )}
+
+            </div>
+          </div>
         </div>
-      </div>
+      )}
 
-      {option &&
-        <Apod />
-      }
+      {(option === 'day' || option === 'date') && (
+        <div>
+        <span onClick={handleVoltar}>Voltar</span>
+        <Apod queryType={option} date={date?.toLocaleDateString() ?? ""} />
+        </div>
+      )}
 
     </main>
   );

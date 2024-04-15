@@ -5,3 +5,8 @@ export type Apod = {
     title: string;
     url: string;
 }
+
+export type ApodProps = {
+    queryType: string;
+    date: string;
+}
