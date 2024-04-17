@@ -1,9 +1,12 @@
+"use client"
+
 import galaxyImage from '../assets/galaxy.png';
 
 const Header = () => {
-    return(
+
+    return (
         <header>
-            <img src={galaxyImage.src}/>
+            <img src={galaxyImage.src} />
             <p className='header-title'>Imagens Astronomia</p>
         </header>
     );

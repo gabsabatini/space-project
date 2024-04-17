@@ -7,6 +7,6 @@ export type Apod = {
 }
 
 export type ApodProps = {
-    queryType: string;
+    optionType: string;
     date: string;
 }
