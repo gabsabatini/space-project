@@ -22,7 +22,6 @@ header {
     align-items: center;
     justify-content: center;
     margin: 40px;
-    border-bottom: 1px solid;
     padding-bottom: 20px;
     margin-top: 0;
 }
@@ -187,6 +186,7 @@ footer p.dev {
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 20px;
+    color: #ccc;
 }
 footer p.dev a {
     display: block;
@@ -197,4 +197,31 @@ footer p.dev a {
 footer p.dev a img{
     width: 24px;
     height: auto;
+}
+.btn-voltar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    padding: 10px;
+    transition: 0.5s;
+    font-size: 14px;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+    background-image: linear-gradient(45deg, #121922 0%, #3A506B 51%, #121922 100%);
+    cursor: pointer;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.btn-voltar:hover {
+    background-position: right center;
+}
+.btn-voltar img {
+    width: 12px;
+    height: 12px;
+    transform: rotate(180deg);
 }

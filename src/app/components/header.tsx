@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header>
             <img src={galaxyImage.src} />
-            <p className='header-title'>Imagens Astronomia</p>
+            {/* <p className='header-title'>Imagens Astronomia</p> */}
         </header>
     );
 }

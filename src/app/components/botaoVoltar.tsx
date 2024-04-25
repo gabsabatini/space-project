@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { OptionContext } from "../contexts/OptionContext";
+import iconVoltar  from '../assets/arrow.png';
 
 export const BotaoVoltar = () => {
 
@@ -10,6 +11,9 @@ export const BotaoVoltar = () => {
     }
 
     return (
-        <span onClick={handleVoltar}>Voltar</span>
+        <div className="btn-voltar">
+            <img src={iconVoltar.src}/>
+            <span onClick={handleVoltar}>Voltar</span>
+        </div>
     );
 }
