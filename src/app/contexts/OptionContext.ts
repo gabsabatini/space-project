@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 // type criado para o contexto receber ou uma string ou um valor null inicialmente
 type ContextOption = {
